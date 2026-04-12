@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier - Marketplace CMC</title>
+    <link rel="stylesheet" href="style-panier.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="cart-header">
+        <div class="container">
+            <h1 data-i18n="cart_header_title">Mon Panier</h1>
+            <p data-i18n="cart_breadcrumb">Accueil / Panier</p>
+        </div>
+    </header>
+
+    <section class="cart-section">
+        <div class="container cart-container">
+            
+            <div class="cart-items-wrapper">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="cart_th_product">Produit</th>
+                            <th data-i18n="cart_th_price">Prix</th>
+                            <th data-i18n="cart_th_quantity">Quantité</th>
+                            <th data-i18n="cart_th_subtotal">Sous-total</th>
+                            <th></th> 
+                        </tr>
+                    </thead>
+                    <tbody id="cart-tbody">
+                        </tbody>
+                </table>
+                
+                <div class="cart-actions">
+                    <button id="clearCartBtn" class="secondary-btn" data-i18n="cart_btn_clear">Vider le panier</button>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h3 data-i18n="cart_summary_title">Résumé de la commande</h3>
+                
+                <div class="summary-line">
+                    <span><span data-i18n="cart_summary_items">Articles</span> (<span id="total-items">0</span>)</span>
+                    <span id="subtotal-price">0.00 DH</span>
+                </div>
+                
+                <div class="summary-line">
+                    <span data-i18n="cart_summary_fee">Frais de gestion CMC</span>
+                    <div class="fee-input-wrapper">
+                        <input type="number" id="management-fee" value="5.00" step="0.50" min="0"> 
+                        <span>DH</span>
+                    </div>
+                </div>
+
+                <div class="summary-line total">
+                    <span data-i18n="cart_summary_total">Total</span>
+                    <span id="final-price">0.00 DH</span>
+                </div>
+
+                <button class="primary-btn checkout-btn" data-i18n="cart_btn_checkout">Valider la commande</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script-panier.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>

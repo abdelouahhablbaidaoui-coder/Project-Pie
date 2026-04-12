@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification - Marketplace CMC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form id="formSignUp">
+            <h1 data-i18n="auth_signup_title">Créer un compte</h1>
+            <span class="subtitle" data-i18n="auth_signup_subtitle">Rejoins la marketplace des stagiaires</span>
+            <input type="text" id="reg-name" placeholder="Nom complet" data-i18n-placeholder="auth_ph_name" required />
+            <input type="text" id="reg-filiere" placeholder="Filière (ex: Dev Digital)" data-i18n-placeholder="auth_ph_major" required />
+            <input type="email" id="reg-email" placeholder="Email institutionnel" data-i18n-placeholder="auth_ph_email_inst" required />
+            <input type="password" id="reg-pass" placeholder="Mot de passe" data-i18n-placeholder="auth_ph_password" required />
+            <button type="submit" class="primary-btn" data-i18n="auth_btn_signup">S'inscrire</button>
+        </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+        <form id="formSignIn">
+            <h1 data-i18n="auth_login_title">Se Connecter</h1>
+            <span class="subtitle" data-i18n="auth_login_subtitle">Gère tes ventes et tes commandes</span>
+            <input type="email" id="log-email" placeholder="Email" data-i18n-placeholder="auth_ph_email" required />
+            <input type="password" id="log-pass" placeholder="Mot de passe" data-i18n-placeholder="auth_ph_password" required />
+            <a href="#" class="forgot-pass" id="openForgotModal" data-i18n="auth_forgot_pass">Mot de passe oublié ?</a>
+            <button type="submit" class="primary-btn" data-i18n="auth_btn_login">Se connecter</button>
+        </form>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h2 data-i18n="auth_overlay_login_title">Déjà inscrit ?</h2>
+                <p data-i18n="auth_overlay_login_desc">Connecte-toi pour suivre tes commandes ou publier de nouveaux articles.</p>
+                <button class="ghost-btn" id="signIn" data-i18n="auth_btn_login">Se connecter</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h2 data-i18n="auth_overlay_signup_title">C'est le moment d'exposer ton talent !</h2>
+                <p data-i18n="auth_overlay_signup_desc">Inscris-toi pour commencer à vendre tes créations au sein de l'établissement.</p>
+                <button class="ghost-btn" id="signUp" data-i18n="auth_btn_signup">S'inscrire</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="customAlert" class="custom-alert hidden">
+    <p id="alertMessage"></p>
+</div>
+
+<div id="forgotPasswordModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <h2 data-i18n="auth_modal_recov_title">Récupération</h2>
+        <p data-i18n="auth_modal_recov_desc">Entre ton email institutionnel pour recevoir un lien de réinitialisation.</p>
+        <input type="email" id="recovery-email" placeholder="Ton email..." data-i18n-placeholder="auth_modal_ph_email" required />
+        <button id="sendRecoveryBtn" class="primary-btn" data-i18n="auth_modal_btn_send">Envoyer le lien</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

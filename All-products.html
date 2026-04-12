@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+    .nav {
+      background: #ffffff;
+      border-bottom: 2px solid #f0f0f0;
+      font-family: 'Nunito', sans-serif;
+      width: 100%;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-placeholder {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #00385a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .brand-text {
+      font-size: 1.37rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-text span { color: #00385a; }
+
+    .menu-toggle { display: none; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span,
+    .hamburger span::before,
+    .hamburger span::after {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #00385a;
+      border-radius: 2px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .hamburger span::before,
+    .hamburger span::after {
+      content: '';
+      position: absolute;
+    }
+
+    .hamburger span::before { top: -7px; }
+    .hamburger span::after { top: 7px; }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      color: #444;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.45rem 0.7rem;
+      border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .menu li a:hover { background: #fff5f1; color: #00385a; }
+    .menu li a.active { color: #00385a; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #f5f5f5;
+      border: 1.5px solid #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .search-box:focus-within {
+      border-color: #00385a;
+      background: #fff;
+    }
+
+    .search-box input {
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 0.83rem;
+      padding: 0.45rem 0.75rem;
+      width: 150px;
+      color: #1a1a1a;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .search-box input::placeholder { color: #aaa; }
+
+    .search-box button {
+      background: none;
+      border: none;
+      padding: 0.45rem 0.7rem;
+      cursor: pointer;
+      color: #888;
+      font-size: 13px;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .search-box button:hover { color: #00385a; }
+
+    .icon-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #f5f5f5;
+      border: 1.5px solid #e8e8e8;
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      text-decoration: none;
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+
+    .icon-btn:hover {
+      background: #fff5f1;
+      border-color: #00385a;
+      color: #00385a;
+    }
+
+    .login-btn {
+      background: #00385a;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.48rem 1.1rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+      font-family: 'Nunito', sans-serif;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .login-btn:hover { background: #b4c8d4; color: #01162b;}
+
+.icone-panier-html {
+    
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    margin-left: 2px;
+    border: 1.5px solid #e8e8e8;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    text-decoration: none;
+    flex-shrink: 0;
+   
+}
+
+.icone-panier-html:hover{
+      background: #fff5f1;
+      border-color: #00385a;
+      color: #00385a;
+    }
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 0.5px solid #ccc;
+  border-radius: 20px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+  margin-left: 20px;
+}
+
+.lang-btn:hover {
+  background: #f5f5f5;
+}
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        width: 100%;
+        padding: 0.75rem 0;
+        border-top: 1px solid #f0f0f0;
+        margin-top: 0.5rem;
+      }
+      .menu-toggle:checked ~ .menu { display: flex; }
+      .nav-inner { flex-wrap: wrap; }
+      .nav-right { width: 100%; justify-content: space-between; }
+    }
+    
+    .section3 {
+    padding: 2rem 2rem;
+    text-align: center;
+    background-color: #cfd8dc  ;
+    border-top: #00385a 1px solid;
+}
+
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 10px;
+}
+
+.card-text {
+    display: inline;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin: 10px;
+    padding: 7px;
+}
+
+.cards img{
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+}
+.card{
+    height: auto;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: white;
+} 
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: white;
+    box-shadow: 
+        0 8px 24px rgba(0, 22, 43, 0.8),
+        0 0 30px white,
+        0 0 60px rgba(106, 144, 180, 0.15);
+}
+
+.section3 h1 {
+  font-size: 42px;
+  font-weight: 500; 
+  font-family: 'DM Sans', sans-serif;
+  text-transform: capitalize;
+  color: #00385a;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.select{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.see{
+  width: 10%;
+  height: 10%;
+  padding: auto;
+  border-radius: 4px;
+  border: 1px solid #00385a;
+  background-color: white;
+  color: black;
+}
+
+.card-title{
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+
+.product-price {
+  display: inline;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-group-custom{
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    margin-top: 3px;
+}
+.btn{
+    border-radius: 20px;
+    padding: 4px 6px;
+    margin: 3px;
+    font-size: 10px;
+    flex: 1;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-1{
+    border-radius: 20px;
+    border: 1px solid black;
+    text-decoration: none;
+    padding: 4px 6px;
+    margin: 3px;
+    font-size: 10px;
+    flex: 1;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+}
+
+.btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.card-text{
+    display: inline;
+    font-size: 11px;
+    margin-right: 6px;
+}
+
+@media (max-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── FOOTER ── */
+.footer {
+  background-color: #cfd8dc;
+  color: #00385a;
+  border-top: 2px solid #00385a;
+  font-family: inherit;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 32px 40px;
+}
+
+/* brand */
+.footer-brand .footer-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  display: block;
+  border: 2px solid #00385a;
+}
+
+.footer-brand-name {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #00385a;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: #00385a;
+  line-height: 1.65;
+  max-width: 240px;
+  margin-bottom: 22px;
+}
+
+/* social icons */
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+  background: #6a90b4;
+  color: #00385a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.footer-socials a:hover {
+  background: #6a90b4;
+  border-color: #6a90b4;
+  transform: translateY(-2px);
+}
+
+/* link columns */
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #00385a;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--surface);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 14px;
+  color: #00385a;
+  text-decoration: none;
+  transition:
+    color 0.18s,
+    padding-left 0.18s;
+  display: inline-block;
+}
+
+.footer-col ul li a:hover {
+  color: var(--text);
+  padding-left: 5px;
+}
+
+/* bottom bar */
+.footer-bottom {
+  border-top: 1px solid var(--surface);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #00385a;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-bottom-links a {
+  font-size: 13px;
+  color: #00385a;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--text);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 40px 20px 32px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 20px;
+  }
+}
+</style>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="logo-placeholder">SS</div>
+        <span class="brand-text">Swap<span>Shop</span></span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger"><span></span></label>
+
+      <ul class="menu">
+        <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+        <li><a href="" data-i18n="nav_shop">Shop</a></li>
+        <li><a href="pie/categories.html" data-i18n="nav_categories">Categories</a></li>
+        <li><a href="" data-i18n="nav_deals">Deals</a></li>
+        <li><a href="cotactUs.html" data-i18n="nav_contact">Contact us</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="search-box">
+          <input type="search" placeholder="Search..." id="searchInput">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+
+        <a href="#" class="icon-btn" title="Wishlist" id="wishlist-icon">
+          <i class="fa fa-heart"></i>
+        </a>
+
+        <a href="#" class="nav-link">
+            <img src="images/online.jpeg" alt="Panier" class="icone-panier-html"> 
+        </a>
+
+        <a href="sing_in.html" class="login-btn">
+          <i class="fa fa-user" style="font-size:12px;"></i>
+          <span data-i18n="nav_login">Log in</span>
+        </a>
+
+        <button onclick="toggleLang(this)" data-lang="fr" class="lang-btn">
+          <span id="flag">🇫🇷</span>
+          <span id="langText">Français</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+    <section class="section3">
+          <div class="select">
+            <h1 data-i18n="all_products_title">all products</h1>
+          </div>
+            <div class="cards">
+                <div class="card">
+                <img src="images/mirror.jpg" class="card-img-top" alt="mirror">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_mirror">Decorative Hand Mirrors</h5>
+                    <p class="card-text">⭐4 (4.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">20.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/bowa.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_headband">Pearl Headbands</h5>
+                    <p class="card-text">⭐7 (7.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">30.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+          
+                <div class="card">
+                <img src="images/men.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_watch1">Watch</h5>
+                    <p class="card-text">⭐10 (10.4k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">200MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/minibag.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_minibag">Likely Match</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">600.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/shoese.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_polo_sneakers">Polo Ralph Lauren Sneakers</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">80.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/zara.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_ballet_flats">ballet flats</h5>
+                    <p class="card-text">⭐2 (2.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">30.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/bigbag.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_tote_bag">brown leather tote bag</h5>
+                    <p class="card-text">⭐9 (9.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">150.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/iphone.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_iphone">iPhone 15 Pro</h5>
+                    <p class="card-text">⭐11 (1.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">999.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/head.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_airpods">Apple AirPods Max</h5>
+                    <p class="card-text">⭐10 (1.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">549.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/heirFixer.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_hair_straightener">L'ange Hair Straightener</h5>
+                    <p class="card-text">⭐7 (7.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">180.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/ysl.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_parfum">Parfum Intense</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">140.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/watch.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_apple_watch">Apple Watch</h5>
+                    <p class="card-text">⭐3 (3.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">110.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/glassesmen.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_sunglasses">frame sunglasses</h5>
+                    <p class="card-text">⭐9 (9.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">200.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/kamanja.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_violin">acoustic violin</h5>
+                    <p class="card-text">⭐9 (9.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">80.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/chess.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_chess">Chess Set</h5>
+                    <p class="card-text">⭐10 (10.4k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">20.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/croshet.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_crochet">Crochet Materials</h5>
+                    <p class="card-text">⭐9 (9.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">40.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/drawing.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_paintbrush">Paintbrush sets</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">100.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/forart.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_apron">black apron</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">10.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/cravata.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_ties">silk ties</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">110.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/tqaxar.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_socks">Lauren Socks</h5>
+                    <p class="card-text">⭐2 (2.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">8.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/pijama.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_coat">Breasted Short Coat</h5>
+                    <p class="card-text">⭐8 (9.2k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">50.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/mdala.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_umbrella">Umbrella</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">10.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/malist.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_pillow">Neck Pillow</h5>
+                    <p class="card-text">⭐8 (9.2k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">25.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img src="images/sleep.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_sleepmask">Sleep mask</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">15.50MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/qamija.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_tshirt">T-Shirt</h5>
+                    <p class="card-text">⭐6 (6.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">60.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/boy.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_sweater">Sweater</h5>
+                    <p class="card-text">⭐8 (9.2k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">100.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/dress.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_striped_shirt">Striped Short-Sleeve</h5>
+                    <p class="card-text">⭐4 (10.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">30.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/xiyaxa.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_collectible">collectible accessory</h5>
+                    <p class="card-text">⭐7 (8.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">110.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/hair.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_wig">pastel pink wig</h5>
+                    <p class="card-text">⭐5 (11.0k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">45.90MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/animestuff.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title" data-i18n="prod_anime_figures">Jujutsu Kaisen Chibi Figures</h5>
+                    <p class="card-text">⭐10 (10.4k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">12.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+            </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/onlineshop.jpeg" alt="SwapShop logo" class="footer-logo" />
+          <span class="footer-brand-name">SwapShop</span>
+          <p class="footer-tagline" data-i18n="footer_tagline">
+            The student marketplace — buy, sell & swap on campus.
+          </p>
+          <div class="footer-socials">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_marketplace">Marketplace</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer_link_browse">Browse listings</a></li>
+            <li><a href="#" data-i18n="footer_link_sell">Sell an item</a></li>
+            <li><a href="#" data-i18n="footer_link_deals">Deals</a></li>
+            <li><a href="#" data-i18n="footer_link_categories">Categories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_account">Account</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer_link_login">Log in</a></li>
+            <li><a href="#" data-i18n="footer_link_signup">Sign up</a></li>
+            <li><a href="#" data-i18n="footer_link_mylistings">My listings</a></li>
+            <li><a href="#" data-i18n="footer_link_saved">Saved items</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_support">Support</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer_link_howitworks">How it works</a></li>
+            <li><a href="#" data-i18n="footer_link_safety">Safety tips</a></li>
+            <li><a href="cotactUs.html" data-i18n="footer_link_contact">Contact us</a></li>
+            <li><a href="#" data-i18n="footer_link_faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copyright">© 2026 SwapShop. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="footer_link_privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer_link_terms">Terms of Use</a>
+          <a href="#" data-i18n="footer_link_cookies">Cookies</a>
+        </div>
+      </div>
+    </footer>
+
+<script src="i18n.js"></script>
+</body>
+</html>

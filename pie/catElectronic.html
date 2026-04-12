@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #b4c8d4;
+        }
+
+        .section2 {
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 56, 90, 0.2);
+        }
+
+        .section2-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section2-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #00385a;
+            opacity: 0.7;
+        }
+
+        .section2-header h1 {
+            font-size: 38px;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #00385a;
+            margin: 6px 0 12px;
+        }
+
+        .section2-line {
+            width: 50px;
+            height: 2px;
+            background-color: #00385a;
+            margin: 0 auto;
+            opacity: 0.4;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .category-item p {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #00385a;
+            margin: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-item:hover p {
+            opacity: 0.6;
+        }
+
+        .category-img-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #00385a;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .category-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.4s ease;
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(0, 56, 90, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-overlay span {
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .category-item:hover .category-img-wrapper {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 22, 43, 0.4);
+        }
+
+        .category-item:hover .category-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .category-item:hover .category-overlay {
+            opacity: 1;
+        }
+
+        .section3 {
+            padding: 2rem 2rem;
+            text-align: center;
+            background-color: #cfd8dc  ;
+            border-top: #00385a 1px solid;
+        }
+
+        .card-body {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 8px 10px;
+        }
+
+        .card-text {
+            display: inline;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin: 10px;
+            padding: 7px;
+        }
+
+        .cards img{
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .card{
+            height: auto;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            background-color: white;
+        } 
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: white;
+            box-shadow: 
+                0 8px 24px rgba(0, 22, 43, 0.8),
+                0 0 30px white,
+                0 0 60px rgba(106, 144, 180, 0.15);
+        }
+
+        .section3 {
+            padding: 2rem 2rem;
+            text-align: center;
+            background-color: #cfd8dc;
+            border-top: none;
+        }
+
+        .section3 h1 {
+            font-size: 42px;
+            font-weight: 500; 
+            font-family: 'DM Sans', sans-serif;
+            text-transform: capitalize;
+            color: #00385a;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .section3-header {
+            text-align: left;
+            padding: 3rem 2rem 1rem;
+            background-color: #cfd8dc;
+        }
+
+        .section3-header h1 {
+            font-size: 38px;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #00385a;
+            margin: 0 0 12px;
+        }
+
+        .section3-line {
+            width: 50px;
+            height: 2px;
+            background-color: #00385a;
+            margin: 0;
+            opacity: 0.4;
+        }
+
+        .see{
+        width: 10%;
+        height: 10%;
+        padding: auto;
+        border-radius: 4px;
+        border: 1px solid #00385a;
+        background-color: white;
+        color: black;
+        }
+
+        .card-title{
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 2px;
+            font-size: 15px;
+        }
+
+        .product-price {
+        display: inline;
+        font-size: 15px;
+        font-weight: bold;
+        }
+
+        .btn-group-custom{
+            display: flex;
+            gap: 6px;
+            width: 100%;
+            margin-top: 3px;
+        }
+        .btn{
+            border-radius: 20px;
+            padding: 4px 6px;
+            margin: 3px;
+            font-size: 10px;
+            flex: 1;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-1{
+            border-radius: 20px;
+            border: 1px solid black;
+            text-decoration: none;
+            padding: 4px 6px;
+            margin: 3px;
+            font-size: 10px;
+            flex: 1;
+            font-weight: bold;
+            background-color: white;
+            color: black;
+        }
+
+        .btn:hover{
+            background-color: black;
+            color: white;
+        }
+
+        .card-text{
+            display: inline;
+            font-size: 11px;
+            margin-right: 6px;
+        }
+
+        @media (max-width: 1200px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section2">
+          <div class="section2-header">
+              <span class="section2-label">explore</span>
+              <h1>Electronics & Gadgets</h1>
+              <div class="section2-line"></div>
+          </div>
+
+          <div class="categories">
+
+            <a href="laptops.html" class="category-item" style="text-decoration: none;">
+                  <div class="category-img-wrapper">
+                      <img src="images/laptop.jfif" alt="Laptops">
+                      <div class="category-overlay">
+                          <span>explore →</span>
+                      </div>
+                  </div>
+                  <p>Laptops</p>
+            </a>
+
+              <div class="category-item">
+                  <div class="category-img-wrapper">
+                      <img src="images/Phones.jfif" alt="Phones">
+                      <div class="category-overlay">
+                          <span>explore →</span>
+                      </div>
+                  </div>
+                  <p>Phones</p>
+              </div>
+
+              <div class="category-item">
+                  <div class="category-img-wrapper">
+                      <img src="images/Headphones.jfif" alt="Headphones">
+                      <div class="category-overlay">
+                          <span>explore →</span>
+                      </div>
+                  </div>
+                  <p>Headphones</p>
+              </div>
+
+              <div class="category-item">
+                  <div class="category-img-wrapper">
+                      <img src="images/Cameras.jfif" alt="Cameras">
+                      <div class="category-overlay">
+                          <span>explore →</span>
+                      </div>
+                  </div>
+                  <p>Cameras</p>
+              </div>
+
+              <div class="category-item">
+                  <div class="category-img-wrapper">
+                      <img src="images/Phone Cases.jfif" alt="Phone Cases">
+                      <div class="category-overlay">
+                          <span>explore →</span>
+                      </div>
+                  </div>
+                  <p>Phone Cases</p>
+              </div>
+          </div>
+        </section>
+
+        <div class="section3-header">
+            <h1>More Ways to Shop</h1>
+            <div class="section3-line"></div>
+        </div>
+
+        <section class="section3">
+            <!--Card 1-->
+            <div class="cards">
+                <div class="card">
+                <img src="images/elec1.jpg" class="card-img-top" alt="Sony WH-1000XM4 Wireless Headphones">
+                <div class="card-body">
+                    <h5 class="card-title">Sony WH-1000XM4 Wireless Headphones</h5>
+                    <p class="card-text">⭐4.8 (3.2k Reviews)</p>
+                    <p class="product-price">280.00DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+
+                <!--Card 2-->
+                <div class="card">
+                <img src="images/elec2.jfif" class="card-img-top" alt="Apple iPod Classic — Clear Case Edition">
+                <div class="card-body">
+                    <h5 class="card-title">Apple iPod Classic — Clear Case Edition</h5>
+                    <p class="card-text">⭐4.6 (1.4k Reviews)</p>
+                    <p class="product-price">85.00DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+          
+                <!--Card 3-->
+                <div class="card">
+                <img src="images/elec3.jpg" class="card-img-top" alt="Nintendo Switch Lite">
+                <div class="card-body">
+                    <h5 class="card-title">Nintendo Switch Lite</h5>
+                    <p class="card-text">⭐4.9 (2.7k Reviews)</p>
+                    <p class="product-price">180.00DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 4-->
+                <div class="card">
+                <img src="images/elec4.jfif" class="card-img-top" alt="Apple iPad Pro — With Apple Pencil & Charger">
+                <div class="card-body">
+                    <h5 class="card-title">Apple iPad Pro — With Apple Pencil & Charger</h5>
+                    <p class="card-text">⭐4.9 (5.1k Reviews)</p>
+                    <p class="product-price">750.00DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 5-->
+                <div class="card">
+                <img src="images/elec5.jfif" class="card-img-top" alt="ASUS ROG Zephyrus Duo — Dual Screen Gaming Laptop">
+                <div class="card-body">
+                    <h5 class="card-title">ASUS ROG Zephyrus Duo — Dual Screen Gaming Laptop</h5>
+                    <p class="card-text">⭐4.8 (3.9k Reviews)</p>
+                    <p class="product-price">8,200DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 6-->
+                <div class="card">
+                <img src="images/elec6.jfif" class="card-img-top" alt="Apple AirPods 4 — With Charging Case">
+                <div class="card-body">
+                    <h5 class="card-title">Apple AirPods 4 — With Charging Case</h5>
+                    <p class="card-text">⭐4.8 (4.3k Reviews)</p>
+                    <p class="product-price">160DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 7-->
+                <div class="card">
+                <img src="images/elec7.jfif" class="card-img-top" alt="GeekAire Portable Handheld Fan">
+                <div class="card-body">
+                    <h5 class="card-title">GeekAire Portable Handheld Fan</h5>
+                    <p class="card-text">⭐4.5 (892 Reviews)</p>
+                    <p class="product-price">25.00DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 8-->
+                <div class="card">
+                <img src="images/elec8.jfif" class="card-img-top" alt="JBL Charge 5 Portable Bluetooth Speaker">
+                <div class="card-body">
+                    <h5 class="card-title">JBL Charge 5 Portable Bluetooth Speaker</h5>
+                    <p class="card-text">⭐4.8 (6.7k Reviews)</p>
+                    <p class="product-price">120.00DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 9-->
+                <div class="card">
+                <img src="images/elec9.jfif" class="card-img-top" alt="Wireless Karaoke Microphone">
+                <div class="card-body">
+                    <h5 class="card-title">Wireless Karaoke Microphone</h5>
+                    <p class="card-text">⭐4.6 (2.1k Reviews)</p>
+                    <p class="product-price">35.00DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 10-->
+                <div class="card">
+                <img src="images/elec10.jfif" class="card-img-top" alt="DJI Osmo Pocket 3">
+                <div class="card-body">
+                    <h5 class="card-title">DJI Osmo Pocket 3</h5>
+                    <p class="card-text">⭐4.9 (3.5k Reviews)</p>
+                    <p class="product-price">420DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 11-->
+                <div class="card">
+                <img src="images/elec11.jpg" class="card-img-top" alt="Electric Sonic Toothbrush — Pink with Travel Case & Heads">
+                <div class="card-body">
+                    <h5 class="card-title">Electric Sonic Toothbrush</h5>
+                    <p class="card-text">⭐4.7 (1.8k Reviews)</p>
+                    <p class="product-price">150DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 12-->
+                <div class="card">
+                <img src="images/elec12.jfif" class="card-img-top" alt="Canon EOS 250D — White with 18-55mm Lens">
+                <div class="card-body">
+                    <h5 class="card-title">Canon EOS 250D — White with 18-55mm Lens</h5>
+                    <p class="card-text">⭐4.8 (4.2k Reviews)</p>
+                    <p class="product-price">2000DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 13-->
+                <div class="card">
+                <img src="images/elec13.jfif" class="card-img-top" alt="DBPower Mini Projector — With Remote Control">
+                <div class="card-body">
+                    <h5 class="card-title">DBPower Mini Projector — With Remote Control</h5>
+                    <p class="card-text">⭐4.5 (3.1k Reviews)</p>
+                    <p class="product-price">500DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 14-->
+                <div class="card">
+                <img src="images/elec14.jfif" class="card-img-top" alt="Amazon Kindle Paperwhite — 16GB Black">
+                <div class="card-body">
+                    <h5 class="card-title">Amazon Kindle Paperwhite — 16GB Black</h5>
+                    <p class="card-text">⭐4.9 (8.4k Reviews)</p>
+                    <p class="product-price">200DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 15-->
+                <div class="card">
+                <img src="images/elec15.jfif" class="card-img-top" alt="Razer Kraken Gaming Headset">
+                <div class="card-body">
+                    <h5 class="card-title">Razer Kraken Gaming Headset</h5>
+                    <p class="card-text">⭐4.7 (2.6k Reviews)</p>
+                    <p class="product-price">2000DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 16-->
+                <div class="card">
+                <img src="images/elec16.jfif" class="card-img-top" alt=" Redragon RGB Wireless Gaming Mouse">
+                <div class="card-body">
+                    <h5 class="card-title">Redragon RGB Wireless Gaming Mouse</h5>
+                    <p class="card-text">⭐4.6 (3.8k Reviews)</p>
+                    <p class="product-price">100DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 16-->
+                <div class="card">
+                <img src="images/elec17.jfif" class="card-img-top" alt="Custom Gaming PC — Black & Pink Water Cooled Build">
+                <div class="card-body">
+                    <h5 class="card-title">Custom Gaming PC</h5>
+                    <p class="card-text">⭐10 (10.4k Reviews)</p>
+                    <p class="product-price">1.500.000</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 17-->
+                <div class="card">
+                <img src="images/elec18.jfif" class="card-img-top" alt="Mechanical Gaming Keyboard — Black & Red with Wrist Rest">
+                <div class="card-body">
+                    <h5 class="card-title">Mechanical Gaming Keyboard</h5>
+                    <p class="card-text">⭐4.7 (1.5k Reviews)</p>
+                    <p class="product-price">4000DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 18-->
+                <div class="card">
+                <img src="images/elec19.jfif" class="card-img-top" alt="HyperX QuadCast S RGB Microphone">
+                <div class="card-body">
+                    <h5 class="card-title">HyperX QuadCast S RGB Microphone</h5>
+                    <p class="card-text">⭐4.9 (5.3k Reviews)</p>
+                    <p class="product-price">5000DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+                
+                <!--Card 19-->
+                <div class="card">
+                <img src="images/elec20.jfif" class="card-img-top" alt="Samsung Galaxy Z Flip 3 — White with Slim Case">
+                <div class="card-body">
+                    <h5 class="card-title">Samsung Galaxy Z Flip 3</h5>
+                    <p class="card-text">⭐4.8 (2.9k Reviews)</p>
+                    <p class="product-price">8000DH</p>
+                    <a href="#" class="btn-1">add to chart</a>
+                    <a href="#" class="btn">buy now</a>
+                </div>
+                </div>
+
+            </div>
+    </section>
+</body>
+</html>

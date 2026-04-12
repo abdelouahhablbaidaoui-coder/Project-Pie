@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shoop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="logo-placeholder">SS</div>
+        <span class="brand-text">Swap<span>Shop</span></span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger"><span></span></label>
+
+      <ul class="menu">
+        <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+        <li><a href="" data-i18n="nav_shop">Shop</a></li>
+        <li><a href="pie/categories.html" data-i18n="nav_categories">Categories</a></li>
+        <li><a href="" data-i18n="nav_deals">Deals</a></li>
+        <li><a href="cotactUs.html" data-i18n="nav_contact">Contact us</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="search-box">
+          <input type="search" placeholder="Search..." data-i18n-placeholder="nav_search_placeholder">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+
+        <a href="#" class="icon-btn" title="Wishlist" id="wishlist-icon">
+          <i class="fa fa-heart"></i>
+        </a>
+
+        <a href="./panier.html" class="nav-link">
+            <img src="images/online.jpeg" alt="Panier" class="icone-panier-html"> 
+        </a>
+
+        <a href="sing_in.html" class="login-btn">
+          <i class="fa fa-user" style="font-size:12px;"></i>
+          <span data-i18n="nav_login">Log in</span>
+        </a>
+
+        <button onclick="toggleLang()" class="lang-btn">
+          <span id="flag">🇫🇷</span>
+          <span id="langText">Français</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+    <div class="sections">
+        <section class="section1">
+            <img src="images/swapshop.jpeg" alt="bgpic">
+            <div class="section1-text">
+              <span class="hero-badge" data-i18n="hero_badge">Stagiaire marketplace</span>
+              <h2 data-i18n="hero_title">Buy & Sell anything, effortlessly</h2>
+              <p data-i18n="hero_desc">discover thousqnds of unique products from verified seller. list your items in minutes and reach buyers.</p>
+                <div class="section1-buttons">
+                  <a href="All-products.html"><button data-i18n="hero_btn_explore">explore products</button></a> 
+                  <a href="formula.html"><button id="sell" data-i18n="hero_btn_sell">start selling</button></a>
+                </div>
+                <div class="hero-stats">
+                  <div><span class="stat-num">12k+</span><span class="stat-label" data-i18n="hero_stat_listings">Listings</span></div>
+                  <div><span class="stat-num">3.4k</span><span class="stat-label" data-i18n="hero_stat_sellers">Sellers</span></div>
+                  <div><span class="stat-num">98%</span><span class="stat-label" data-i18n="hero_stat_satisfied">Satisfied</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section2">
+          <div class="section2-header">
+              <span class="section2-label" data-i18n="cat_label_explore">explore</span>
+              <h1 data-i18n="cat_title">shop by category</h1>
+              <div class="section2-line"></div>
+          </div>
+          <div class="categories">
+            <a href="pie/catWomenOOTD.html"> 
+            <div class="category-item">
+                  <div class="category-img-wrapper">
+                      <img src="images/fashion.jpg" alt="fashion">
+                      <div class="category-overlay">
+                          <span data-i18n="cat_overlay_explore">explore →</span>
+                      </div>
+                  </div></a>
+                  <p data-i18n="cat_name_women">Women's Clothing</p>
+            </div>
+              <div class="category-item">
+                  <a href="pie/catBeauty.html">
+                  <div class="category-img-wrapper">
+                      <img src="images/Beauty & Health.jpg" alt="Beauty & Health">
+                      <div class="category-overlay">
+                          <span data-i18n="cat_overlay_explore">explore →</span>
+                      </div>
+                  </div></a> 
+                  <p data-i18n="cat_name_beauty">Beauty & Health</p>
+              </div>
+              <div class="category-item">
+                  <a href="pie/catElectronic.html">
+                    <div class="category-img-wrapper">
+                      <img src="images/electronics.jpg" alt="electronics">
+                      <div class="category-overlay">
+                          <span data-i18n="cat_overlay_explore">explore →</span>
+                      </div>
+                  </div></a>
+                  <p data-i18n="cat_name_electronics">Electronics</p>
+              </div>
+              <div class="category-item">
+                  <a href="pie/cathomeLight.html">
+                    <div class="category-img-wrapper">
+                      <img src="images/home.jpg" alt="home">
+                      <div class="category-overlay">
+                          <span data-i18n="cat_overlay_explore">explore →</span>
+                      </div>
+                  </div></a> 
+                  <p data-i18n="cat_name_home">home & living</p>
+              </div>
+              <div class="category-item">
+                  <a href="pie/catArt.html">
+                    <div class="category-img-wrapper">
+                      <img src="images/art.jpg" alt="art">
+                      <div class="category-overlay">
+                          <span data-i18n="cat_overlay_explore">explore →</span>
+                      </div>
+                  </div></a>
+                  <p data-i18n="cat_name_art">Art & Craft</p>
+              </div>
+              <div class="category-item">
+                  <a href="pie/catGames.html">
+                    <div class="category-img-wrapper">
+                      <img src="images/games.jpg" alt="games">
+                      <div class="category-overlay">
+                          <span data-i18n="cat_overlay_explore">explore →</span>
+                      </div>
+                  </div></a>
+                  <p data-i18n="cat_name_games">games</p>
+              </div>
+          </div>
+          <a href="pie/categories.html"><button class="show" type="submit" data-i18n="btn_show_more">show more</button></a>
+        </section>
+
+        <section class="section3">
+          <div class="select">
+            <h1 data-i18n="featured_title">featured products</h1>
+            <a href="All-products.html"><button class="see" type="button" data-i18n="btn_see_all">See all →</button></a>
+          </div>
+            <div class="cards">
+                <div class="card">
+                <img src="images/camera.jpg" class="card-img-top" alt="camera">
+                <div class="card-body">
+                    <h5 class="card-title">Sony Cyber-shot</h5>
+                    <p class="card-text">⭐10 (10.4k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">110MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/books.jpg" class="card-img-top" alt="books">
+                <div class="card-body">
+                    <h5 class="card-title">The Cruel Prince</h5>
+                    <p class="card-text">⭐6.0 (2.1k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">12.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/ghibli.jpg" class="card-img-top" alt="cap">
+                <div class="card-body">
+                    <h5 class="card-title">Totoro Ceramic Mug</h5>
+                    <p class="card-text">⭐3.4 (4.7k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">15.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/laptop.jpg" class="card-img-top" alt="cap">
+                <div class="card-body">
+                    <h5 class="card-title">MacBook Pro 14</h5>
+                    <p class="card-text">⭐10 (10.9k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">999MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/tablet.jpg" class="card-img-top" alt="cap">
+                <div class="card-body">
+                    <h5 class="card-title">Apple iPad Air</h5>
+                    <p class="card-text">⭐9,4 (10k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">599.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/glasses.jpg" class="card-img-top" alt="glasses">
+                <div class="card-body">
+                    <h5 class="card-title">New York N.Y. Embroidered</h5>
+                    <p class="card-text">⭐7.0 (10k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price"> 25.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/cute.jpg" class="card-img-top" alt="poopies">
+                <div class="card-body">
+                    <h5 class="card-title">Wild Republic</h5>
+                    <p class="card-text">⭐5.0 (2.9k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">11.99MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/adidas.jpg" class="card-img-top" alt="adidas">
+                <div class="card-body">
+                    <h5 class="card-title">Kung Fu Jacket</h5>
+                    <p class="card-text">⭐5.0 (1.2k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">120MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/jbl.jpg" class="card-img-top" alt="headphone">
+                <div class="card-body">
+                    <h5 class="card-title">Sony WH-1000XM5</h5>
+                    <p class="card-text">⭐4.8 (2k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">279.99MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/shoose.jpg" class="card-img-top" alt="shoose">
+                <div class="card-body">
+                    <h5 class="card-title">Adidas Samba OG</h5>
+                    <p class="card-text">⭐4.9 (5k <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">180.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/bag.jpg" class="card-img-top" alt="bag">
+                <div class="card-body">
+                    <h5 class="card-title">Cartier Tank Louis</h5>
+                    <p class="card-text">⭐3.0 (2000 <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">8.50MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/notebook.jpg" class="card-img-top" alt="notebook">
+                <div class="card-body">
+                    <h5 class="card-title">Swan Candy Dish</h5>
+                    <p class="card-text">⭐2.0 (1.50K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">10.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/icon.jpg" class="card-img-top" alt="anime">
+                <div class="card-body">
+                    <h5 class="card-title">custom-styled variant</h5>
+                    <p class="card-text">⭐10.9 (9.10K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">45MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/outfit.jpg" class="card-img-top" alt="rings">
+                <div class="card-body">
+                    <h5 class="card-title">Casual Streetwear</h5>
+                    <p class="card-text">⭐6.9 (7.9K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">990MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/makeup.jpg" class="card-img-top" alt="makeup">
+                <div class="card-body">
+                    <h5 class="card-title">Eyeshadow Palette</h5>
+                    <p class="card-text">⭐4.7 (3.40K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">30.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/grand.jpg" class="card-img-top" alt="makeup">
+                <div class="card-body">
+                    <h5 class="card-title">Shrek-Themed Mug</h5>
+                    <p class="card-text">⭐8.0 (3.0K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">10.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/clock.jpg" class="card-img-top" alt="makeup">
+                <div class="card-body">
+                    <h5 class="card-title">Wooden Wall Clock</h5>
+                    <p class="card-text">⭐2.5 (7.3K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">15.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/decoration.jpg" class="card-img-top" alt="makeup">
+                <div class="card-body">
+                    <h5 class="card-title">Decorative Lamp</h5>
+                    <p class="card-text">⭐8.0 (9.9K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">50.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/mraya.jpg" class="card-img-top" alt="makeup">
+                <div class="card-body">
+                    <h5 class="card-title">Irregular Shaped Wall Mirror</h5>
+                    <p class="card-text">⭐10.7 (9.1K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">180MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+
+                <div class="card">
+                <img src="images/style.jpg" class="card-img-top" alt="makeup">
+                <div class="card-body">
+                    <h5 class="card-title">Black Hoodie</h5>
+                    <p class="card-text">⭐5.7 (7.8K <span data-i18n="text_reviews">Reviews</span>)</p>
+                    <p class="product-price">50.00MAD</p>
+                    <a href="#" class="btn-1" data-i18n="btn_add_to_cart">add to chart</a>
+                    <a href="#" class="btn" data-i18n="btn_buy_now">buy now</a>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section4">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="container-fluid p-0">
+   
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">                    
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img src="images/bag1.jpeg" class="d-block w-100" alt="Bannière 1">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="images/bag2.jpeg" class="d-block w-100" alt="Bannière 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/bag3.jpeg" class="d-block w-100" alt="Bannière 3">
+                        </div>
+                    </div>
+                    
+                    </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+        </section>
+
+        <section class="section5">
+          <div class="partie1">
+            <span class="s5-tag" data-i18n="news_tag">Newsletter</span>
+            <h1 data-i18n="news_title">Ready to get<br><span class="s5-span">our new stuff?</span></h1>
+            <p class="s5-desc" data-i18n="news_desc">Be the first to know about new listings, exclusive deals, and campus updates.</p>
+            <div class="s5-form">
+              <input type="email" placeholder="Enter your email address" data-i18n-placeholder="news_placeholder">
+              <button type="button" data-i18n="news_btn_subscribe">Subscribe</button>
+            </div>
+          </div>
+
+          <div class="s5-divider"></div>
+
+          <div class="partie2">
+            <div class="s5-feature">
+              <div class="s5-icon"><i class="fa fa-shield-halved"></i></div>
+              <div class="s5-feature-text">
+                <h4 data-i18n="feat_verified_title">Verified sellers</h4>
+                <p data-i18n="feat_verified_desc">Every seller is a real student, verified on campus.</p>
+              </div>
+            </div>
+            <div class="s5-feature">
+              <div class="s5-icon"><i class="fa fa-clock"></i></div>
+              <div class="s5-feature-text">
+                <h4 data-i18n="feat_fast_title">Fast listings</h4>
+                <p data-i18n="feat_fast_desc">Post your item in under 2 minutes and reach buyers.</p>
+              </div>
+            </div>
+            <div class="s5-feature">
+              <div class="s5-icon"><i class="fa fa-heart"></i></div>
+              <div class="s5-feature-text">
+                <h4 data-i18n="feat_community_title">Community first</h4>
+                <p data-i18n="feat_community_desc">Built for students, by students — swap, buy & sell.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/onlineshop.jpeg" alt="SwapShop logo" class="footer-logo" />
+          <span class="footer-brand-name">SwapShop</span>
+          <p class="footer-tagline" data-i18n="footer_tagline">
+            The student marketplace — buy, sell & swap on campus.
+          </p>
+          <div class="footer-socials">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_marketplace">Marketplace</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer_link_browse">Browse listings</a></li>
+            <li><a href="#" data-i18n="footer_link_sell">Sell an item</a></li>
+            <li><a href="#" data-i18n="footer_link_deals">Deals</a></li>
+            <li><a href="#" data-i18n="footer_link_categories">Categories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_account">Account</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer_link_login">Log in</a></li>
+            <li><a href="#" data-i18n="footer_link_signup">Sign up</a></li>
+            <li><a href="#" data-i18n="footer_link_mylistings">My listings</a></li>
+            <li><a href="#" data-i18n="footer_link_saved">Saved items</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_support">Support</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer_link_howitworks">How it works</a></li>
+            <li><a href="#" data-i18n="footer_link_safety">Safety tips</a></li>
+            <li><a href="cotactUs.html" data-i18n="footer_link_contact">Contact us</a></li>
+            <li><a href="#" data-i18n="footer_link_faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copyright">© 2026 SwapShop. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="footer_link_privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer_link_terms">Terms of Use</a>
+          <a href="#" data-i18n="footer_link_cookies">Cookies</a>
+        </div>
+      </div>
+    </footer>
+
+
+    <div id="wishlist-sidebar" class="wishlist-sidebar">
+        <div class="wishlist-header">
+            <h2><span data-i18n="wishlist_title">Mes Favoris</span> <i class="fa fa-heart" style="color: red;"></i></h2>
+            <button id="close-wishlist" class="close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="wishlist-content" id="wishlist-items">
+            </div>
+    </div>
+  <div id="wishlist-overlay" class="wishlist-overlay"></div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="script-index.js"></script>
+    <script src="i18n.js"></script>
+
+</body>
+</html>

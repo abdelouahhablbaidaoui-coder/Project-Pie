@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Ta palette de couleurs */
+:root {
+    --bleu-abyss: #01162b;       
+    --courant-froid: #00385a;    
+    --brouillard-arctique: #6a90b4; 
+    --voile-neige: #d2dbeb;      
+    --fond-clair: #f8fafc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Montserrat', sans-serif; color: var(--bleu-abyss); background-color: var(--fond-clair); }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+
+/* --- SECTION CONTACT --- */
+.contact-section { padding: 80px 0; background-color: var(--voile-neige); }
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(1, 22, 43, 0.1);
+}
+
+.contact-info, .contact-form-container { flex: 1; min-width: 300px; }
+
+.contact-info h2, .contact-form-container h2 {
+    color: var(--bleu-abyss); margin-bottom: 15px; font-size: 1.8rem;
+}
+.contact-info p { color: var(--courant-froid); margin-bottom: 30px; line-height: 1.6; }
+
+/* Petites boites d'info (Téléphone, Email...) */
+.info-boxes { display: flex; flex-direction: column; gap: 20px; }
+.info-box {
+    display: flex; align-items: center; background: var(--fond-clair);
+    padding: 15px 20px; border-radius: 10px; border-left: 5px solid var(--brouillard-arctique);
+}
+.info-box i { font-size: 24px; color: var(--courant-froid); margin-right: 20px; width: 30px; text-align: center;}
+.info-box h4 { font-size: 1rem; color: var(--bleu-abyss); margin-bottom: 3px;}
+.info-box p { margin: 0; font-size: 0.9rem; color: var(--brouillard-arctique); }
+
+/* Le formulaire de droite */
+.input-group { margin-bottom: 20px; }
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--voile-neige);
+    border-radius: 8px;
+    background-color: var(--fond-clair);
+    font-family: inherit;
+    color: var(--bleu-abyss);
+    transition: all 0.3s ease;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--brouillard-arctique);
+    box-shadow: 0 0 0 3px rgba(106, 144, 180, 0.2);
+}
+textarea { resize: vertical; }
+
+.submit-btn {
+    background-color: var(--courant-froid);
+    color: white; border: none; padding: 15px 30px;
+    border-radius: 30px; font-weight: 600; font-size: 1rem;
+    cursor: pointer; transition: background-color 0.3s;
+    width: 100%;
+}
+.submit-btn:hover { background-color: var(--bleu-abyss); }
+
+/* Responsive : Pour que ça s'affiche bien sur téléphone */
+@media (max-width: 768px) {
+    .contact-wrapper { flex-direction: column; padding: 20px; }
+}
